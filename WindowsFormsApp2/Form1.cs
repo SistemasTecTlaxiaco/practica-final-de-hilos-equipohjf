@@ -33,12 +33,12 @@ namespace WindowsFormsApp2
         {
             while(true)
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
                 this.Invoke(new MethodInvoker(() => { this.Imagen1.Visible = true; }));
-                this.Invoke(new MethodInvoker(() => { this.Download.Text = "Descargar!!"; }));
-                Thread.Sleep(5000);
+                this.Invoke(new MethodInvoker(() => { this.Download.Text = "Ja, Ja"; }));
+                Thread.Sleep(1000);
                 this.Invoke(new MethodInvoker(() => { this.Imagen1.Visible = false; }));
-                this.Invoke(new MethodInvoker(() => { this.Download.Text = ""; }));
+                this.Invoke(new MethodInvoker(() => { this.Download.Text = "Ja"; }));
             }
         }
 
@@ -204,6 +204,11 @@ namespace WindowsFormsApp2
         }
 
         private void btnTiempo_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

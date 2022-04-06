@@ -83,5 +83,8 @@
   <ItemGroup>
     <None Include="bin\Debug\Download.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\asas.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
