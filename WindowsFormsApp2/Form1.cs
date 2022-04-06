@@ -13,10 +13,33 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
+        List<Thread> hilos;
         public Form1()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+
+            hilos = new List<Thread>();
+            this.Imagen1.Visible = false;
+        }
+
+        private void CicloInfinito()
+        {
+            Thread ciclo = new Thread(Animacion);
+            ciclo.Start();
+            this.hilos.Add(ciclo);
+        }
+        private void Animacion()
+        {
+            while(true)
+            {
+                Thread.Sleep(5000);
+                this.Invoke(new MethodInvoker(() => { this.Imagen1.Visible = true; }));
+                this.Invoke(new MethodInvoker(() => { this.Download.Text = "Descargar!!"; }));
+                Thread.Sleep(5000);
+                this.Invoke(new MethodInvoker(() => { this.Imagen1.Visible = false; }));
+                this.Invoke(new MethodInvoker(() => { this.Download.Text = ""; }));
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,6 +99,24 @@ namespace WindowsFormsApp2
             {
 
             }
+        }
+
+        private void Imagen1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(hilos[0].IsAlive)
+            {
+                hilos[0].Abort();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.CicloInfinito();
         }
     }
 }
