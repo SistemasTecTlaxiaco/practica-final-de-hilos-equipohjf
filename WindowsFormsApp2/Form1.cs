@@ -85,7 +85,7 @@ namespace WindowsFormsApp2
                         Thread.Sleep(speed);
                     }
                 }
-                ){ IsBackground = true }.Start();
+                ) { IsBackground = true }.Start();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -101,10 +101,15 @@ namespace WindowsFormsApp2
             }
         }
 
+
         private void Imagen1_Click(object sender, EventArgs e)
+        { }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
+
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -117,6 +122,90 @@ namespace WindowsFormsApp2
         private void Form1_Load(object sender, EventArgs e)
         {
             this.CicloInfinito();
+        }
+       
+
+        private void temporizador_Tick(object sender, EventArgs e)
+        {
+            tiempo.Text = DateTime.Now.ToLongTimeString();
+        }
+
+       
+
+        private Thread hiloSecundario;
+        private void btnTiempo_Click(object sender, EventArgs e)
+        {
+            btnTiempo.Enabled = false;
+            numCarga.Enabled = false;
+            //Delgado que hace referencia la metodo que tiene que ejecutar el hilo 
+            ThreadStart delegadoPS = new ThreadStart(TareaSecundaria);
+            //Crear hilo
+            hiloSecundario = new Thread(delegadoPS);
+            //Ejecutar hilo
+            hiloSecundario.Start();
+
+            progreso.Value = 0;
+
+            TareaSecundaria();
+        }
+
+        private delegate void SetValueDelegate(int prValue);
+
+
+        private void SetValue_progreso(int hecho)
+        {
+            if (progreso.InvokeRequired)
+            {
+                SetValueDelegate delegado = new SetValueDelegate(SetValue_progreso);
+                progreso.Invoke(delegado, new object[] { hecho });
+            }
+
+            else
+                progreso.Value = hecho;
+        }
+
+
+        private int tphecho;
+
+        private void SetEnabled_btnTiempo()
+        {
+            btnTiempo.Enabled = true;
+        }
+
+        private void SetEnabled_numCarga()
+        {
+            numCarga.Enabled = true;
+        }
+
+        void TareaSecundaria()
+        {
+            int hecho = 0;
+            tphecho = 0;
+
+            MethodInvoker delegado;
+
+
+            while(hecho < numCarga.Value)
+            {
+                //aumentar el valor de carga 
+                hecho += 1;
+                tphecho = (int)(hecho / numCarga.Value * 100);
+                if(tphecho > progreso.Value)
+                {
+                    SetValue_progreso(tphecho);
+                } 
+            }
+
+            delegado = new MethodInvoker(SetEnabled_btnTiempo);
+            btnTiempo.Invoke(delegado);
+
+            delegado = new MethodInvoker(SetEnabled_numCarga);
+            numCarga.Invoke(delegado);
+        }
+
+        private void btnTiempo_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

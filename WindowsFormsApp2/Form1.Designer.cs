@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -40,13 +41,19 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.Imagen1 = new System.Windows.Forms.PictureBox();
             this.Download = new System.Windows.Forms.Label();
+            this.tiempo = new System.Windows.Forms.Label();
+            this.progreso = new System.Windows.Forms.ProgressBar();
+            this.btnTiempo = new System.Windows.Forms.Button();
+            this.temporizador = new System.Windows.Forms.Timer(this.components);
+            this.Carga = new System.Windows.Forms.Label();
+            this.numCarga = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Imagen1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCarga)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 19);
+            this.textBox1.Location = new System.Drawing.Point(88, 10);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 20);
@@ -92,7 +99,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(195, 161);
+            this.pictureBox1.Location = new System.Drawing.Point(124, 131);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(86, 80);
@@ -133,35 +140,86 @@
             this.textBox2.TabIndex = 7;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // Imagen1
+            // tiempo
             // 
-            this.Imagen1.Image = global::WindowsFormsApp2.Properties.Resources.Download;
-            this.Imagen1.Location = new System.Drawing.Point(588, 313);
-            this.Imagen1.Name = "Imagen1";
-            this.Imagen1.Size = new System.Drawing.Size(146, 34);
-            this.Imagen1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Imagen1.TabIndex = 8;
-            this.Imagen1.TabStop = false;
-            this.Imagen1.Click += new System.EventHandler(this.Imagen1_Click);
+            this.tiempo.AutoSize = true;
+            this.tiempo.Location = new System.Drawing.Point(220, 267);
+            this.tiempo.Name = "tiempo";
+            this.tiempo.Size = new System.Drawing.Size(49, 13);
+            this.tiempo.TabIndex = 8;
+            this.tiempo.Text = "00:00:00";
+            this.tiempo.Click += new System.EventHandler(this.label2_Click);
             // 
-            // Download
+            // progreso
             // 
-            this.Download.AutoSize = true;
-            this.Download.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
-            this.Download.Location = new System.Drawing.Point(637, 278);
-            this.Download.Name = "Download";
-            this.Download.Size = new System.Drawing.Size(49, 13);
-            this.Download.TabIndex = 9;
-            this.Download.Text = "_______";
+            this.progreso.Location = new System.Drawing.Point(146, 296);
+            this.progreso.Name = "progreso";
+            this.progreso.Size = new System.Drawing.Size(193, 23);
+            this.progreso.Step = 1;
+            this.progreso.TabIndex = 9;
+            // 
+            // btnTiempo
+            // 
+            this.btnTiempo.Location = new System.Drawing.Point(204, 331);
+            this.btnTiempo.Name = "btnTiempo";
+            this.btnTiempo.Size = new System.Drawing.Size(75, 23);
+            this.btnTiempo.TabIndex = 10;
+            this.btnTiempo.Text = "Cargar";
+            this.btnTiempo.UseVisualStyleBackColor = true;
+            this.btnTiempo.Click += new System.EventHandler(this.btnTiempo_Click);
+            // 
+            // temporizador
+            // 
+            this.temporizador.Enabled = true;
+            this.temporizador.Interval = 1000;
+            this.temporizador.Tick += new System.EventHandler(this.temporizador_Tick);
+            // 
+            // Carga
+            // 
+            this.Carga.AutoSize = true;
+            this.Carga.Location = new System.Drawing.Point(345, 306);
+            this.Carga.Name = "Carga";
+            this.Carga.Size = new System.Drawing.Size(35, 13);
+            this.Carga.TabIndex = 11;
+            this.Carga.Text = "Carga";
+            // 
+            // numCarga
+            // 
+            this.numCarga.Increment = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numCarga.Location = new System.Drawing.Point(386, 306);
+            this.numCarga.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numCarga.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numCarga.Name = "numCarga";
+            this.numCarga.Size = new System.Drawing.Size(74, 20);
+            this.numCarga.TabIndex = 12;
+            this.numCarga.Value = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(102)))), ((int)(((byte)(135)))));
-            this.ClientSize = new System.Drawing.Size(884, 561);
-            this.Controls.Add(this.Download);
-            this.Controls.Add(this.Imagen1);
+            this.ClientSize = new System.Drawing.Size(478, 366);
+            this.Controls.Add(this.numCarga);
+            this.Controls.Add(this.Carga);
+            this.Controls.Add(this.btnTiempo);
+            this.Controls.Add(this.progreso);
+            this.Controls.Add(this.tiempo);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.checkBox1);
@@ -173,10 +231,9 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Imagen1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCarga)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,8 +250,12 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.PictureBox Imagen1;
-        private System.Windows.Forms.Label Download;
+        private System.Windows.Forms.Label tiempo;
+        private System.Windows.Forms.ProgressBar progreso;
+        private System.Windows.Forms.Button btnTiempo;
+        private System.Windows.Forms.Timer temporizador;
+        private System.Windows.Forms.Label Carga;
+        private System.Windows.Forms.NumericUpDown numCarga;
     }
 }
 
