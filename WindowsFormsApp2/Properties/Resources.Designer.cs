@@ -63,9 +63,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap asas {
+        internal static System.Drawing.Bitmap asasImg {
             get {
-                object obj = ResourceManager.GetObject("asas", resourceCulture);
+                object obj = ResourceManager.GetObject("asasImg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,29 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Download {
+        internal static System.Drawing.Bitmap asasImg1 {
             get {
-                object obj = ResourceManager.GetObject("Download", resourceCulture);
+                object obj = ResourceManager.GetObject("asasImg1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DownloadImg {
+            get {
+                object obj = ResourceManager.GetObject("DownloadImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DownloadImg1 {
+            get {
+                object obj = ResourceManager.GetObject("DownloadImg1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

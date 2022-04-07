@@ -42,10 +42,10 @@
             this.temporizador = new System.Windows.Forms.Timer(this.components);
             this.numCarga = new System.Windows.Forms.NumericUpDown();
             this.Download = new System.Windows.Forms.Label();
-            this.Imagen1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Imagen1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCarga)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Imagen1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -202,27 +202,6 @@
             this.Download.TabIndex = 14;
             this.Download.Text = "JA, JA";
             // 
-            // Imagen1
-            // 
-            this.Imagen1.Image = global::WindowsFormsApp2.Properties.Resources.Download;
-            this.Imagen1.Location = new System.Drawing.Point(520, 456);
-            this.Imagen1.Name = "Imagen1";
-            this.Imagen1.Size = new System.Drawing.Size(100, 50);
-            this.Imagen1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Imagen1.TabIndex = 13;
-            this.Imagen1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.asas;
-            this.pictureBox1.Location = new System.Drawing.Point(247, 97);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(363, 260);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -246,6 +225,27 @@
             this.label3.Size = new System.Drawing.Size(97, 26);
             this.label3.TabIndex = 16;
             this.label3.Text = "Velocidad";
+            // 
+            // Imagen1
+            // 
+            this.Imagen1.Image = global::WindowsFormsApp2.Properties.Resources.DownloadImg1;
+            this.Imagen1.Location = new System.Drawing.Point(520, 456);
+            this.Imagen1.Name = "Imagen1";
+            this.Imagen1.Size = new System.Drawing.Size(100, 50);
+            this.Imagen1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Imagen1.TabIndex = 13;
+            this.Imagen1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.asasImg1;
+            this.pictureBox1.Location = new System.Drawing.Point(247, 97);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(363, 260);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
